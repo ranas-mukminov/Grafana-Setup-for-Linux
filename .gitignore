@@ -1,0 +1,60 @@
+# Environment variables
+.env
+*.env
+!.env.example
+
+# Backups
+backups/
+*.tar.gz
+*.zip
+
+# Docker volumes
+volumes/
+
+# Logs
+*.log
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Node modules (if any)
+node_modules/
+
+# Kubernetes secrets
+kubernetes/secrets/
+
+# Ansible vault
+*.vault
+
+# Old files
+README_OLD.md
