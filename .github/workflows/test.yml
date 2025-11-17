@@ -1,0 +1,32 @@
+name: Test Installation Scripts
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-scripts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Test Makefile
+        run: |
+          make help
+      
+      - name: Validate installation scripts
+        run: |
+          bash -n scripts/install/ubuntu-install.sh
+          bash -n scripts/install/arch-install.sh
+          bash -n scripts/install/centos-install.sh
+          bash -n scripts/install/suse-install.sh
+      
+      - name: Test Docker Compose
+        run: |
+          docker-compose -f docker/docker-compose.yml config
+          
+      - name: Check Python syntax
+        run: |
+          python3 -m py_compile exporters/telegram-bot-exporter/bot_exporter.py

@@ -1,0 +1,14 @@
+[monitoring]
+monitoring-01 ansible_host=192.168.1.10 ansible_user=admin
+monitoring-02 ansible_host=192.168.1.11 ansible_user=admin
+monitoring-03 ansible_host=192.168.1.12 ansible_user=admin
+
+[monitoring:vars]
+ansible_python_interpreter=/usr/bin/python3
+
+[production]
+prod-monitoring-01 ansible_host=10.0.0.10 ansible_user=admin
+
+[production:vars]
+ansible_python_interpreter=/usr/bin/python3
+grafana_admin_password={{ vault_grafana_admin_password }}
